@@ -1,0 +1,60 @@
+<div class="bg-primary p-2 text-white" [class.bg-warning]="editing"   
+  [class.text-dark]="editing">   
+   <h5>{{editing  ? "Edit" : "Create"}} Faculty Details</h5> 
+</div> 
+<form  #form="ngForm" (ngSubmit)="save(form)">    <div class="form-group">        <label>Name</label> 
+           
+    <input class="form-control" name="name" [(ngModel)]="product.name"  required/>
+</div>
+<!-- <div class="form-group"> 
+           <label>ID</label> 
+           
+    <input class="form-control" name="sid" [(ngModel)]="product.sid" required />
+</div> -->
+<div class="form-group">  
+ <label>Branch</label> 
+           
+    <input class="form-control" name="branch" [(ngModel)]="product.branch" required/>
+</div>
+<div class="form-group">  
+          <label>Gender</label> 
+           
+    <input  class="form-control" name="gender" [(ngModel)]="product.gender" required />
+</div>
+<div class="form-group"> 
+           <label>DOB</label> 
+           
+    <input type="date" class="form-control" name="date" [(ngModel)]="product.date" required />
+</div>
+<div class="form-group">        <label>Email</label> 
+           
+    <input class="form-control" type="email" name="email" [(ngModel)]="product.email" required />
+</div>
+<div class="form-group">        <label>Phone</label> 
+           
+    <input class="form-control" name="phone" type="text" [(ngModel)]="product.phone"  pattern="[1-9]{1}[0-9]{9}" required/>
+</div>
+<div class="form-group"> 
+           <label>Address</label> 
+           
+    <input class="form-control"  name="address" [(ngModel)]="product.address" required />
+</div>
+<div class="form-group">        <label>Date Of Joining</label> 
+           
+    <input class="form-control" type="date" name="dateofjoining" [(ngModel)]="product.dateofjoining" required />
+</div>
+<div class="form-group">        <label>Experience(in years)</label> 
+           
+    <input class="form-control" type="number" name="experience" [(ngModel)]="product.experience" required />
+</div>
+<div class="form-group">        <label>Designation</label> 
+           
+    <input class="form-control" name="designation" [(ngModel)]="product.designation" required/>
+</div>
+
+<button id="b5" type="submit" class="btn btn-primary mr-2" [class.btn-warning]="editing"> 
+           {{editing ? "Save" : "Create"}}   
+         </button> 
+<button id="b4" type="reset" class="btn btn-secondary" routerLink="/admin/main/products">        Cancel    </button> 
+
+</form>

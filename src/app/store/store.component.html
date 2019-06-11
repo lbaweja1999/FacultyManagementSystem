@@ -1,0 +1,263 @@
+<div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">
+    <h1>Faculty Management System</h1>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
+    aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="./about">About Faculties</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link"  routerLink="/admin">Admin</a>
+        </li>
+    </ul>
+    <cart-summary></cart-summary>
+  </div>
+</nav>
+</div>
+
+<div class="container-fluid">
+
+  <div class="row">
+    <div class="col-3 p-2">
+      <button id="zoom" class="btn btn-block btn-warning" (click)="changeCategory()">
+        Home
+      </button>
+      <button *ngFor="let cat of categories" class="btn btn-success btn-block " id="zoom"
+        [class.active]="cat == selectedCategory" (click)="changeCategory(cat)">
+        {{cat}}
+      </button>
+      <!-- <button class="btn btn-block btn-danger m-t-3" routerLink="/admin" id="zoom"> Admin </button> -->
+    </div>
+    <!-- <div class="col-3 p-1" >
+            <img src="../../assets/images/campus-life-img1-300x153.jpg" width="550px" height="345px" alt="campus-life">
+        </div>
+        <div class="col-3 p-1">
+                <img src="../../assets/images/campus-life-img17-300x153.jpg" width="500px" height="345px" alt="campus-life">
+            </div> -->
+
+    <div class="col-9 p-2">
+      <div *ngFor="let product of products" class="card m-1 p-1 bg-light">
+        <h3>
+          {{product.name}}
+          <div class="badge badge-pill badge-primary float-right">Date of Joining:
+            {{ product.dateofjoining | date:"dd/MM/yyyy"}}
+          </div>
+        </h3>
+        <div class="card-text bg-light p-1">
+          <h4>{{product.designation}}
+            <button id="b1" class="btn  btn-outline-success-sm  float-right" (click)="addProductToCart(product)">
+              Show Faculty Details
+            </button>
+
+          </h4>
+        </div>
+      </div>
+      <div class="form-inline float-left mr-1">
+        <select class="form-control" [value]="productsPerPage" (change)="changePageSize($event.target.value)">
+          <option value="4">4 per Page</option>
+          <option value="8">8 per Page</option>
+          <option value="16">16 per Page</option>
+        </select>
+      </div>
+      <div class="btn-group float-right">
+        <button *ngFor="let page of pageNumbers" (click)="changePage(page)" class="btn btn-outline-primary"
+          [class.active]="page == selectedPage">
+          {{page}}
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="container col-12">
+    <div class="row">
+      <h2><span id="a">The NorthCap University (NCU)</span></h2>
+    </div>
+    <div class="row">
+      <div class="block">
+        <div class="row">
+          <div class="span4">
+            <img class="img-left thumbnail" src="../../assets/images/NCU India.png" />
+            <div class="content-heading">
+              <h3><span id="a">About Us</span></h3>
+            </div>
+            <p><b> The NorthCap University (NCU), rebranded itself on 31 August 2015 vide Haryana Government Ordinance No. 2
+              of 2015, followed by UGC Govt. of India notification dated 26 August 2015. NCU is a unitary university
+              situated in Sector 23-A, Gurugram, Haryana and accredited by the National Assessment and Accreditation
+              Council (NAAC) 2016-2021. It was founded in 1996 by Educate India Society as an Engineering Institute to
+              provide higher education in Engineering and Management. The institute gained the status of a State Private
+              university in the Academic Year 2009-10, under Act No. 25/2009 by the Legislature of State of Haryana and
+              accorded UGC approval under Section 2(f) of the UGC Act 1956. In a span of a few years, we have grown to
+              be one of the foremost educational institutions in North India. As a testimony of this fact, we have been
+              ranked as ‘The University of the Year 2017’ by the Higher Education Review and among the top 150
+              universities under National Institutional Ranking Framework (NIRF) by the Ministry of Human Resource
+              Development, Government of India
+</b>
+            </p>
+            <p><b>The University imparts education in undergraduate and postgraduate programmes in engineering, management,
+              sciences and law. It is recognized by various government and regulatory bodies for teaching and awarding
+              degrees. The University is approved by the University Grants Commission (UGC) and recognized by the Bar
+              Council of India (BCI). The University is a member of the Association of Indian Universities (AIU). Aside
+              from being a Member of the American Society for Quality (I) Pvt Ltd, it is accredited by Accreditation
+              Services for International Colleges (ASIC), UK.</b></p>
+          </div>
+        </div>
+        <br />
+        <hr>
+        <div class="row">
+          <div class="span4">
+            <img class="img-right rounded-circle" src="../../assets/images/chancellor-img-1.jpg" width="250px" />
+            <div class="content-heading">
+              <h3> Daulet Singh </h3>
+            </div>
+            <div class="content-heading">
+              <h4>Chancellor </h4>
+            </div>
+            <p><b>It is a pleasure to welcome you to The NorthCap University, a progressive thinking institution of higher
+              learning that meets your aspirations and prepares you for the future workplace. The learning methodology
+              integrates multidisciplinary and interdisciplinary global pedagogy across Law, Management, Applied
+              Sciences, Engineering and Technology. The University promotes creativity, innovation, provides
+              opportunities for experimentation, critical analysis, rational thinking and learning by doing real work.
+            </b> </p>
+            <p><b>The NorthCap University will prepare you for a sound professional career, ready to seize opportunities,
+              accept challenges and be a leader who can innovate and inspire, find creative solutions to problems facing
+              the country and the world at large. I believe in the great pool of talent that our youth have and we
+              strive to empower you with knowledge, skills, abilities and the attitude that will enable you to win
+              deals, drive decisions and determine the future.</b></p>
+            <p><b>In a nurturing environment we inspire innovation, encourage entrepreneurship and create a youth capital
+              capable of transforming society. The University has global alliances with highly reputed academic
+              institutions and industrial organizations for collaborative academic and research work as we believe in
+              preparing leaders who can contribute to national and global economies.</b></p>
+          </div>
+        </div>
+        <br />
+        <hr>
+        <div class="row">
+          <div class="span4">
+            <img class="img-left rounded-circle" src="../../assets/images/pro-chancellor-message.png" width="250px"
+              height="255px" />
+            <div class="content-heading">
+              <h3> Prem Vrat
+              </h3>
+            </div>
+            <div class="content-heading">
+              <h4>Pro-Chancellor, Professor of Eminence and Chief Mentor </h4>
+            </div>
+            <p><b>Welcome to The NorthCap University, a contemporary and innovative multidisciplinary university where
+              individuals are not restricted by the boundaries of a particular discipline. It is dedicated towards
+              imparting high-quality, value-based education, at par with international standards. We empower you with
+              requisite skills to enhance your employability, confident to explore new opportunities and confront
+              challenges in the emerging future. We have developed a collaborative environment conducive to learning,
+              exposure to the best international practices and promotion of innovation and creativity that has enabled
+              the University to be recognized as a premier centre of higher learning.</b></p>
+            <b><p>Our challenge is to help generate ideas that will benefit society and learn to work in domains where you
+              will be valued both for your specialized knowledge as well as for your ability to research, communicate
+              and solve problems. A holistic perspective with the right degree of flexibility is the key driver of our
+              academic policies. The entire course structure is regularly reviewed and updated to keep pace with the
+              fast-changing technology and skills, ensuring international competitiveness. To make an instant connect
+              with the aspiring gen-next in the most effective manner, the University attracts the best minds towards
+              mentoring and guiding so that our graduates are a force to reckon with in the new, interconnected and
+              borderless world of the new millennium.</p>
+            <p>Our efforts are always focused on creating and developing an environment for innovation and research. We
+              have a talented pool of highly qualified faculty, mentors and guides with significant industry experience
+              to ensure you learn from the best. We have adopted global standards of learning, industry-ready
+              curriculum, technologically advanced learning modules, fructifying placement results with employer
+              satisfaction, locational advantage for strengthening academia-industry linkages and excellent
+              infrastructure and facilities that make NCU a frontrunner in North India. The University is pioneering new
+              ways of using online technologies to enrich the educational experience and is expanding opportunities for
+              learners to become job providers, not just job-seekers.</p></b>
+          </div>
+        </div>
+        <br />
+        <hr>
+        <div class="row">
+          <div class="span4">
+            <img class="img-right rounded-circle" src="../../assets/images/hbraghevangra.png" width="250px" />
+            <div class="content-heading">
+              <h3><span id="a"> H B Raghavendra</span> </h3>
+            </div>
+            <div class="content-heading">
+              <h4><span id="b"> Vice-Chancellor</span> </h4>
+            </div>
+           <b> <p>It is our pleasure to welcome you to The NorthCap University, one of the premier universities of
+              Delhi-NCR and North India, dedicated to its vision of being known for academic excellence and socially
+              relevant research outcomes. We, at The NorthCap University (NCU) are committed to develop a fraternity of
+              competent professionals of international standards and calibre who are innovative, analytical and
+              independent. The University was accredited in May 2016 by the National Assessment and Accreditation
+              Council (NAAC) for a period of five years i.e. 2016-2021.</p>
+            <p>Accreditation Services for International Colleges (ASIC), UK, reaccredited NCU in its ‘Premier
+              University’ category, with a ‘Commendable’ grade for the next four years i.e. 2016-2020. The University
+              continues to be the leader amongst Private Universities in Haryana and Delhi in the National Institutional
+              Ranking Framework (NIRF) by MHRD, Government of India in April 2018. NCU is recognized by the University
+              Grants Commission (UGC) and Bar Council of India (BCI), and several prestigious awards have been conferred
+              on the University in successive national surveys. ‘The Week’ magazine has ranked us amongst the Top 10
+              Private & Deemed Technical Universities in the country published in their May 2018 issue.
+
+            </p>
+            <p>Students are our brand ambassadors and for their holistic development the University not only provides a
+              vibrant and positive ambience but a well-equipped library, clubs, sports and extracurricular activities
+              etc. to facilitate them. The three schools of the University viz., School of Engineering & Technology,
+              School of Management and School of Law, offer a wide range of professional programmes in diverse areas at
+              Undergraduate, Postgraduate and PhD levels. Our multidisciplinary programmes are at par with international
+              standards, offering flexibility featured in the curriculum. We constantly update programmes and course
+              content to meet the challenge of grooming professionals and making them industry ready by equipping them
+              with the required technical and soft skills. We offer blended learning by using e-learning with regular
+              classroom learning with special focus on hands-on practical learning. NCU has associations with leading
+              IITs and the students can study various courses conducted by them, use IIT lab facilities through their
+              Virtual Lab platform, take their online tests and earn certificates awarded by them.</p></b>
+          </div>
+        </div></div></div></div></div>
+        <footer class="footer-distributed">
+
+          <div class="footer-left">
+
+            <h3>Faculty<span>ManagementSystem</span></h3>
+
+            <p class="footer-links">
+              <a href="#">Home</a>
+              ·
+
+              <a href="#">About</a>
+
+            </p>
+
+            <p class="footer-company-name"> FacultyManagementSystem - NCU © 2019</p>
+          </div>
+
+          <div class="footer-center">
+
+            <div>
+              <i class="fa fa-map-marker"></i>
+              <p><span>HUDA Sector 23-A Gurugram – 122017</span>Haryana, India</p>
+            </div>
+
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+ 91 124 2365811</p>
+            </div>
+
+            <div>
+              <i class="fa fa-envelope"></i>
+              <p><a href="mailto:ncu@ncuindia.edu">ncu@ncuindia.edu</a></p>
+            </div>
+
+          </div>
+
+          <div class="footer-right">
+
+            <p class="footer-company-about">
+              <span>About</span>
+              This system promises to provide the same awesome experience to all the faculties.
+            </p>
+
+          </div>
+
+        </footer>

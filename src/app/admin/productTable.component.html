@@ -1,0 +1,44 @@
+<table class="table table-sm table-striped">    
+    <thead>   
+             <tr> 
+                 <th>Name</th>
+                 <th>ID</th>
+                 <th>Branch</th>
+                 <th>Gender</th>
+                 <th>DOB</th>
+                 <th>Email</th>
+                 <th>Phone</th>
+                 <th>Address</th>
+                 <th>DateOfJoining</th>
+                 <th>Experience(in years)</th>
+                 <th>Designation</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                        <tr *ngFor="let p of getProducts()"> 
+                            <td>{{p.name}}</td>
+                            <td>{{p.id}}</td>
+                            <td>{{p.branch}}</td>
+                            <td>{{p.gender}}</td>
+                            <td>{{p.DOB | date:"dd/MM/yyyy"}}</td>
+                            <td>{{p.email}}</td>
+                            <td>{{p.phone}}</td>
+                            <td>{{p.address}}</td>
+                            <td>{{p.dateofjoining | date:"dd/MM/yyyy"}}</td>
+                            <td>{{p.experience}}</td>
+                            <td>{{p.designation}}</td>
+                            <td> 
+                                <button id="b6" class="btn btn-sm btn-warning"                        [routerLink]="['/admin/main/products/edit', p.id]" *ngIf="p.pro=='n'">                    Edit                
+                                </button> 
+                            </td>
+                            <td>
+                            <button id="b7" class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">                    Delete                
+                                        </button> 
+                            </td>
+                            <td *ngIf="p.experience>=3"> <button class="btn btn-sm btn-success" (click)="p.pro='y';"> Promote</button></td>
+                            </tr>
+
+                 </tbody>
+                 </table>
+                 <button class="btn btn-primary" id="b8" routerLink="/admin/main/products/create"> 
+                       Create New Faculty Record </button>

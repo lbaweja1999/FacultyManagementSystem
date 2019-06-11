@@ -1,0 +1,72 @@
+<div class="container-fluid"> 
+    <div class="row">  
+          <div class="col bg-dark text-white">   
+                 <a class="navbar-brand"><h1>Faculty Management System</h1></a>  
+                 </div> 
+    </div> 
+    <div class="row"> 
+           <div class="col mt-2">   
+                  <h2 class="text-center">Faculty Details</h2>    
+                    <table class="table table-bordered table-striped p-2"> 
+                               <thead>
+                                             <tr>   
+                                                          <th><h4>Name</h4>
+                                                              
+                                                          </th>            
+                                                          <th><h4>ID</h4>
+                                                              
+                                                          </th>            <th><h4>Branch</h4>
+                                                              
+                                                          </th>           
+                                                           <th ><h4>Gender</h4>
+                                                              
+                                                           </th>          
+                                                           <th><h4>
+                                                               DOB</h4>
+                                                           </th>
+                                                           <th><h4>
+                                                               Email</h4>
+                                                           </th>
+                                                           <th><h4>
+                                                               Phone</h4>
+                                                           </th>
+                                                           <th><h4>
+                                                               Address</h4>
+                                                           </th>
+                                                           <th><h4>
+                                                               Date of Joining</h4>
+                                                           </th>
+                                                           <th><h4>
+                                                               Experience(in years)</h4>
+                                                           </th>
+                                                           <th><h4>
+                                                               Designation</h4>
+                                                           </th>
+                                                       </tr>       
+                                                    </thead>        
+       <tbody> 
+               <tr *ngFor="let line of cart.lines"> 
+                   <td><h5>{{line.product.name}}</h5></td>
+                   <td><h5>{{line.product.id}}</h5></td>
+                   <td><h5>{{line.product.branch}}</h5></td>
+                   <td><h5>{{line.product.gender}}</h5></td>
+                   <td><h5>{{line.product.DOB | date:"dd/MM/yyyy"}}</h5></td>
+                   <td><h5>{{line.product.email}}</h5></td>
+                   <td><h5>{{line.product.phone}}</h5></td>
+                   <td><h5>{{line.product.address}}</h5></td>
+                   <td><h5>{{line.product.dateofjoining | date:"dd/MM/yyyy"}}</h5></td>
+                   <td><h5>{{line.product.experience}}</h5></td>
+                   <td><h5>{{line.product.designation}}</h5></td>
+                   <td> <button class="btn btn-sm btn-danger"  routerLink="/admin" >                Promote  </button></td>
+                  </tr>
+                  </tbody>
+                  </table>
+                  </div>
+                  </div>
+                  <div class="row">    <div class="col">    <div class="text-center">  
+                          <button id="b2" class="btn btn-primary m-1" routerLink="/store">      
+                               Go Back to Home Page     
+                            </button>
+                            </div>
+                            </div>
+                            </div>
